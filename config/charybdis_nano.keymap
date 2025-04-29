@@ -3,7 +3,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
-#include <dt-bindings/zmk/pointing.h>
 
 #define DEFAULT 0
 #define NUMBER  1
@@ -18,8 +17,6 @@
 
 / {
     behaviors {
-
-
         td0: tap_dance_0 {
             compatible = "zmk,behavior-tap-dance";
             label = "L_CLK";
@@ -27,6 +24,7 @@
             tapping-term-ms = <200>;
             bindings = <&mkp LCLK>, <&mkp LCLK>;
         };
+
         td1: tap_dance_1 {
             compatible = "zmk,behavior-tap-dance";
             label = "M_CLK";
@@ -34,6 +32,7 @@
             tapping-term-ms = <200>;
             bindings = <&mkp MCLK>, <&mkp MCLK>;
         };
+
         td2: tap_dance_2 {
             compatible = "zmk,behavior-tap-dance";
             label = "R_CLK";
@@ -41,13 +40,7 @@
             tapping-term-ms = <200>;
             bindings = <&mkp RCLK>, <&mkp RCLK>;
         };
-
-
-
-
     };
-
-
 
     combos {
         compatible = "zmk,combos";
@@ -70,21 +63,10 @@
             bindings = <&mkp RCLK>;
         };
 
-        combo_2 {
-            timeout-ms = <50>;
-            key-positions = <>;
-            bindings = <&kp N2 >;
+        Thinkpad {
+            bindings = <&mo 1>;
+            key-positions = <62 63>;
         };
-
-        combo_GUI {
-            timeout-ms = <50>;
-            key-positions = <>;
-            bindings = <&tog 1>;
-        };
-    };
-
-    macros {
-
     };
 
     keymap {
@@ -93,12 +75,12 @@
         default_layer {
             label = "DEFAULT";
             bindings = <
-&lt 1 ESC  &kp N1  &kp N2     &kp N3    &kp N4     &kp N5        &kp N6  &kp N7   &kp N8     &kp N9    &kp N0    &lt 1 MINUS
-&lt 2 TAB  &kp Q   &kp W      &kp E     &kp R      &kp T         &kp Y   &kp U    &kp I      &kp O     &kp P     &lt 2 EQUAL
-&kp LSHFT  &kp A   &kp S      &kp D     &kp F      &kp G         &kp H   &kp J    &kp K      &kp L     &kp SEMI  &lt 3 SQT
-&kp CAPS   &kp Z   &kp X      &kp C     &kp V      &kp B         &kp N   &kp M    &kp COMMA  &kp DOT   &kp FSLH  &kp BSLH
-                   &kp GRAVE  &kp LGUI  &kp BSPC   &kp SPACE     &none   &kp RET  &kp LBKT   &kp RBKT
-                   &kp LALT   &kp LALT  &kp LCTRL  &lt 3 DELETE  &none   &none    &mo 1      &kp LALT
+&lt 1 ESC  &kp N1  &kp N2     &kp N3    &kp N4     &kp N5        &kp N6  &kp N7         &kp N8     &kp N9          &kp N0          &kp EQUAL
+&lt 2 TAB  &kp Q   &kp W      &kp E     &kp R      &kp T         &kp Y   &kp U          &kp I      &kp O           &kp P           &kp MINUS
+&kp LSHFT  &kp A   &kp S      &kp D     &kp F      &kp G         &kp H   &kp J          &kp K      &kp L           &kp UP_ARROW    &kp SLASH
+&kp CAPS   &kp Z   &kp X      &kp C     &kp V      &kp B         &kp B   &kp N          &kp M      &kp PERIOD      &kp DOWN_ARROW  &kp RIGHT
+                   &kp GRAVE  &kp LGUI  &kp BSPC   &kp SPACE     &none   &kp BACKSPACE  &kp COMMA  &kp LEFT_ARROW
+                   &kp LALT   &kp LALT  &kp LCTRL  &lt 3 DELETE  &none   &none          &mkp LCLK  &mkp RCLK
             >;
         };
 
